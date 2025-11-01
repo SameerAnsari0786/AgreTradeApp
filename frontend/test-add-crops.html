@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Adding Crops - AgreTrade</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .step {
+            background: #f8f9ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .step h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .step p {
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .step code {
+            background: #2c3e50;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .success {
+            background: #d4edda;
+            border-left-color: #27ae60;
+        }
+
+        .error {
+            background: #f8d7da;
+            border-left-color: #e74c3c;
+        }
+
+        .warning {
+            background: #fff8e1;
+            border-left-color: #ffc107;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        ul li {
+            margin: 8px 0;
+            color: #2c3e50;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌾 How to Add Crops - Testing Guide</h1>
+        <p style="color: #7f8c8d; margin-bottom: 30px;">Follow these steps to test adding multiple crops for one farmer</p>
+
+        <!-- Step 1 -->
+        <div class="step">
+            <h2>Step 1: Register as a Farmer</h2>
+            <p><strong>If you haven't registered yet:</strong></p>
+            <ul>
+                <li>Open <span class="highlight">farmer-register.html</span></li>
+                <li>Fill in your details (Name, Email, Password, Phone, Address)</li>
+                <li>Click "Register"</li>
+                <li>Remember your <code>email</code> - you'll use it to login!</li>
+            </ul>
+            <a href="farmer-register.html" class="btn">Go to Registration</a>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step success">
+            <h2>Step 2: Login as Farmer</h2>
+            <p><strong>Login with your registered email:</strong></p>
+            <ul>
+                <li>Open <span class="highlight">login.html?role=farmer</span></li>
+                <li>Enter your <code>email address</code> (NOT username)</li>
+                <li>Enter your password</li>
+                <li>Click "Login"</li>
+                <li>You'll be redirected to <span class="highlight">Farmer Dashboard</span></li>
+            </ul>
+            <a href="login.html?role=farmer" class="btn">Go to Login</a>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step">
+            <h2>Step 3: Add Your First Crop</h2>
+            <p><strong>In the Farmer Dashboard:</strong></p>
+            <ul>
+                <li>Look for the <span class="highlight">"➕ Add Crop"</span> button at the top</li>
+                <li>Click it to open the "Add Crop" form</li>
+                <li>Fill in the crop details:</li>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Crop Name:</strong> e.g., "Wheat", "Rice", "Tomatoes"</li>
+                    <li><strong>Price:</strong> e.g., 25.00 (price per kg/unit)</li>
+                    <li><strong>Quantity:</strong> e.g., 5000 (total you have)</li>
+                    <li><strong>Description:</strong> Optional details</li>
+                </ul>
+                <li>Click <span class="highlight">"Add Crop"</span></li>
+                <li>You'll see a success message! ✅</li>
+            </ul>
+            <a href="farmer-dashboard.html" class="btn">Go to Dashboard</a>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step success">
+            <h2>Step 4: Add MORE Crops (Multiple)</h2>
+            <p><strong>Repeat Step 3 to add as many crops as you want:</strong></p>
+            <ul>
+                <li>Click <span class="highlight">"➕ Add Crop"</span> again</li>
+                <li>Add another crop: e.g., "Rice"</li>
+                <li>Click <span class="highlight">"➕ Add Crop"</span> again</li>
+                <li>Add another crop: e.g., "Tomatoes"</li>
+                <li>Keep adding as many as you need!</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>📌 Each farmer can add UNLIMITED crops!</strong></p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step">
+            <h2>Step 5: View Your Crops</h2>
+            <p><strong>To see all crops you've added:</strong></p>
+            <ul>
+                <li>In the dashboard table, find your name</li>
+                <li>Click the <span class="highlight">"🌾 Crops"</span> button</li>
+                <li>A popup will show ALL your crops with:</li>
+                <ul style="margin-top: 10px;">
+                    <li>Crop name</li>
+                    <li>Price per unit</li>
+                    <li>Quantity available</li>
+                    <li>Description (if you added one)</li>
+                </ul>
+            </ul>
+        </div>
+
+        <!-- Testing Example -->
+        <div class="step warning">
+            <h2>📋 Testing Example</h2>
+            <p><strong>Test with these sample crops:</strong></p>
+            
+            <p style="margin-top: 15px;"><strong>Crop 1:</strong></p>
+            <ul>
+                <li>Name: Wheat</li>
+                <li>Price: 25.00</li>
+                <li>Quantity: 5000</li>
+                <li>Description: Premium quality wheat from Punjab</li>
+            </ul>
+
+            <p style="margin-top: 15px;"><strong>Crop 2:</strong></p>
+            <ul>
+                <li>Name: Rice</li>
+                <li>Price: 35.50</li>
+                <li>Quantity: 3000</li>
+                <li>Description: Basmati rice, organic</li>
+            </ul>
+
+            <p style="margin-top: 15px;"><strong>Crop 3:</strong></p>
+            <ul>
+                <li>Name: Tomatoes</li>
+                <li>Price: 15.00</li>
+                <li>Quantity: 2000</li>
+                <li>Description: Fresh red tomatoes</li>
+            </ul>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="step error">
+            <h2>⚠️ If Something Goes Wrong</h2>
+            <p><strong>Check these common issues:</strong></p>
+            <ul>
+                <li><strong>Backend not running:</strong> Make sure you started <code>mvn spring-boot:run</code></li>
+                <li><strong>Can't login:</strong> Use your <span class="highlight">email</span>, not username</li>
+                <li><strong>"Farmer not found":</strong> You must register as a FARMER first, not just a user</li>
+                <li><strong>Token expired:</strong> Just logout and login again</li>
+                <li><strong>CORS error:</strong> Restart the backend server</li>
+                <li><strong>Check browser console:</strong> Press F12 to see error messages</li>
+            </ul>
+        </div>
+
+        <!-- What You'll See -->
+        <div class="step success">
+            <h2>✅ What You Should See</h2>
+            <p><strong>After adding multiple crops:</strong></p>
+            <ul>
+                <li>Dashboard table shows: "Wheat, Rice, Tomatoes" in the Crop Name column</li>
+                <li>Average price across all your crops</li>
+                <li>Total quantity from all crops</li>
+                <li>Statistics cards update automatically</li>
+                <li>Click "🌾 Crops" to see each crop in a beautiful card layout</li>
+            </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">🔗 Quick Links</h2>
+            <a href="start.html" class="btn">Home Page</a>
+            <a href="farmer-register.html" class="btn">Register</a>
+            <a href="login.html?role=farmer" class="btn">Login</a>
+            <a href="farmer-dashboard.html" class="btn">Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgreTrade - Connecting Farmers & Merchants</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-container">
+                <div class="logo">🌾</div>
+                <h1 class="brand-name">AgreTrade</h1>
+            </div>
+            <p class="tagline">Connecting Farmers & Merchants for Better Trade</p>
+            <p class="subtitle">Your trusted platform for agricultural commerce</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- User Type Selection -->
+        <section class="user-type-section">
+            <h2 class="section-title">Choose Your Portal</h2>
+            
+            <div class="cards-container">
+                <!-- Farmer Card -->
+                <div class="user-card farmer-card">
+                    <div class="card-icon">🧑‍🌾</div>
+                    <h3 class="card-title">Farmer</h3>
+                    <p class="card-description">List your crops, connect with merchants, and grow your business</p>
+                    <ul class="card-features">
+                        <li>✓ List your products</li>
+                        <li>✓ Set your prices</li>
+                        <li>✓ Manage inventory</li>
+                        <li>✓ Direct merchant contact</li>
+                    </ul>
+                    <div class="card-buttons">
+                        <button class="btn btn-primary farmer-btn" onclick="location.href='login.html?role=farmer'">
+                            <span>Login</span>
+                        </button>
+                        <button class="btn btn-secondary farmer-btn-outline" onclick="location.href='farmer-register.html'">
+                            <span>Register</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Merchant Card -->
+                <div class="user-card merchant-card">
+                    <div class="card-icon">🏢</div>
+                    <h3 class="card-title">Merchant</h3>
+                    <p class="card-description">Find quality crops, connect with farmers, and expand your supply chain</p>
+                    <ul class="card-features">
+                        <li>✓ Search by crop type</li>
+                        <li>✓ View farmer profiles</li>
+                        <li>✓ Compare prices</li>
+                        <li>✓ WhatsApp integration</li>
+                    </ul>
+                    <div class="card-buttons">
+                        <button class="btn btn-primary merchant-btn" onclick="location.href='login.html?role=merchant'">
+                            <span>Login</span>
+                        </button>
+                        <button class="btn btn-secondary merchant-btn-outline" onclick="location.href='merchant-register.html'">
+                            <span>Register</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about-section">
+            <h2 class="section-title">About AgreTrade</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Empowering Agricultural Commerce</h3>
+                    <p>AgreTrade is a modern platform designed to bridge the gap between farmers and merchants. We believe in fair trade, transparent pricing, and direct connections that benefit everyone in the agricultural supply chain.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>To create a seamless marketplace where farmers can showcase their produce directly to merchants, eliminating middlemen and ensuring better prices for both parties.</p>
+                    
+                    <h3>Why Choose AgreTrade?</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">🔒</div>
+                            <h4>Secure Platform</h4>
+                            <p>Your data is protected with industry-standard security</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💬</div>
+                            <h4>Direct Communication</h4>
+                            <p>Connect instantly via WhatsApp and phone</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📊</div>
+                            <h4>Easy Management</h4>
+                            <p>Intuitive dashboards for tracking and managing</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌍</div>
+                            <h4>Wide Reach</h4>
+                            <p>Connect with buyers and sellers across regions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Register</h4>
+                    <p>Sign up as a farmer or merchant</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Create Profile</h4>
+                    <p>Add your details and products</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Connect</h4>
+                    <p>Search and contact partners</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Trade</h4>
+                    <p>Complete transactions directly</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands of farmers and merchants already trading on AgreTrade</p>
+            <div class="cta-buttons">
+                <button class="btn btn-large btn-farmer" onclick="location.href='farmer-register.html'">
+                    Register as Farmer
+                </button>
+                <button class="btn btn-large btn-merchant" onclick="location.href='merchant-register.html'">
+                    Register as Merchant
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AgreTrade</h4>
+                <p>Connecting Farmers & Merchants</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="farmer-register.html">Farmer Register</a></li>
+                    <li><a href="merchant-register.html">Merchant Register</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: info@agretrade.com</p>
+                <p>Phone: +1 234 567 8900</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">🐦</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AgreTrade. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>

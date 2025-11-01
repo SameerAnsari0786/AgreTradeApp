@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Registration - AgreTrade</title>
+    <link rel="stylesheet" href="css/farmer-register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="registration-card">
+            <div class="header">
+                <h1>🌾 AgreTrade</h1>
+                <h2>Farmer Registration</h2>
+                <p>Join our platform to connect with merchants</p>
+            </div>
+
+            <!-- Alert Messages -->
+            <div id="alertMessage" class="alert hidden">
+                <span id="alertText"></span>
+                <button class="close-btn" onclick="closeAlert()">&times;</button>
+            </div>
+
+            <form id="farmerRegistrationForm" class="registration-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@example.com"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter a strong password"
+                            required
+                            minlength="6"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                        <input 
+                            type="tel" 
+                            id="phoneNumber" 
+                            name="phoneNumber" 
+                            placeholder="+1 (555) 123-4567"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea 
+                        id="address" 
+                        name="address" 
+                        rows="3" 
+                        placeholder="Enter your complete address"
+                    ></textarea>
+                </div>
+
+                <div class="info-box">
+                    <p>📝 <strong>Note:</strong> You can add your crops after registration from your dashboard.</p>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">Register as Farmer</span>
+                    <span id="btnLoader" class="loader hidden"></span>
+                </button>
+            </form>
+
+            <div class="footer-links">
+                <p>Already have an account? <a href="login.html">Login here</a></p>
+                <p>Are you a merchant? <a href="merchant-register.html">Register as Merchant</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/farmer-register.js"></script>
+</body>
+</html>

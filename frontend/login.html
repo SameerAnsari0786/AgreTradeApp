@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AgreTrade</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="header">
+                <h1>🌾 AgreTrade</h1>
+                <h2>Welcome Back</h2>
+                <p>Login to access your account</p>
+            </div>
+
+            <div id="alertMessage" class="alert hidden">
+                <span id="alertText"></span>
+                <button class="close-btn" onclick="closeAlert()">&times;</button>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Enter your registered email"
+                        required
+                    >
+                    <small class="hint">Use the email you registered with</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">Login</span>
+                    <span id="btnLoader" class="loader hidden"></span>
+                </button>
+            </form>
+
+            <div class="footer-links">
+                <p>Don't have an account?</p>
+                <div class="register-options">
+                    <a href="farmer-register.html" class="register-link">Register as Farmer</a>
+                    <span>|</span>
+                    <a href="merchant-register.html" class="register-link">Register as Merchant</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

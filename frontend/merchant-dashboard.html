@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Dashboard - AgreTrade</title>
+    <link rel="stylesheet" href="css/merchant-dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🏢 AgreTrade Merchant</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="btn-cart" onclick="openCartModal()">
+                    🛒 Cart <span id="cartCount" class="cart-badge">0</span>
+                </button>
+                <span class="nav-user">Welcome, <strong id="userName">Merchant</strong></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <div class="dashboard-header">
+            <div class="header-content">
+                <h2>Merchant Dashboard</h2>
+                <p>Search and connect with farmers</p>
+            </div>
+        </div>
+
+        <!-- Alert Messages -->
+        <div id="alertMessage" class="alert hidden">
+            <span id="alertText"></span>
+            <button class="close-btn" onclick="closeAlert()">&times;</button>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-container" id="statsContainer">
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🌾</div>
+                <div class="stat-info">
+                    <h3 id="totalFarmers">0</h3>
+                    <p>Total Farmers</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌾</div>
+                <div class="stat-info">
+                    <h3 id="totalCrops">0</h3>
+                    <p>Available Crops</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-info">
+                    <h3 id="totalQuantity">0</h3>
+                    <p>Total Quantity</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <h3 id="avgPrice">$0</h3>
+                    <p>Average Price</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <div class="search-header">
+                    <h3>🔍 Search Farmers by Crop</h3>
+                    <p>Find farmers growing specific crops and connect directly</p>
+                </div>
+                
+                <div class="search-box-container">
+                    <input 
+                        type="text" 
+                        id="cropSearchInput" 
+                        class="search-input"
+                        placeholder="Enter crop name (e.g., Wheat, Rice, Corn)..."
+                        onkeyup="handleSearchKeypress(event)"
+                    >
+                    <button class="btn-search" onclick="searchFarmers()">
+                        <span class="search-icon">🔍</span>
+                        Search
+                    </button>
+                    <button class="btn-clear" onclick="clearSearch()">
+                        <span class="clear-icon">✖️</span>
+                        Clear
+                    </button>
+                </div>
+
+                <div class="quick-search">
+                    <span class="quick-label">Quick Search:</span>
+                    <button class="quick-btn" onclick="quickSearch('Wheat')">🌾 Wheat</button>
+                    <button class="quick-btn" onclick="quickSearch('Rice')">🍚 Rice</button>
+                    <button class="quick-btn" onclick="quickSearch('Corn')">🌽 Corn</button>
+                    <button class="quick-btn" onclick="quickSearch('Cotton')">☁️ Cotton</button>
+                    <button class="quick-btn" onclick="quickSearch('Tomato')">🍅 Tomato</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-container hidden">
+            <div class="spinner"></div>
+            <p>Searching for farmers...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results-section hidden">
+            <div class="results-header">
+                <h3 id="resultsTitle">Search Results</h3>
+                <span id="resultsCount" class="results-count">0 farmers found</span>
+            </div>
+
+            <!-- Results Grid -->
+            <div id="resultsGrid" class="results-grid">
+                <!-- Farmer cards will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="no-results hidden">
+            <div class="no-results-icon">🔍</div>
+            <h3>No Farmers Found</h3>
+            <p id="noResultsMessage">No farmers found growing this crop. Try searching for a different crop.</p>
+        </div>
+
+        <!-- Welcome Message (shown initially) -->
+        <div id="welcomeMessage" class="welcome-message">
+            <div class="welcome-icon">🌾</div>
+            <h3>Welcome to Merchant Dashboard</h3>
+            <p>Use the search box above to find farmers by crop name</p>
+            <div class="welcome-features">
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>View farmer details</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>Direct contact information</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>Price and quantity info</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Farmers List Section -->
+        <div class="all-farmers-section">
+            <div class="section-header">
+                <h3>📋 All Farmers & Crops</h3>
+                <div class="section-actions">
+                    <button class="btn-primary" onclick="showAllFarmers()">
+                        <span>👁️</span>
+                        Show All Farmers
+                    </button>
+                    <select id="sortFarmersList" onchange="sortFarmersList()" disabled>
+                        <option value="">Sort by...</option>
+                        <option value="name">Farmer Name (A-Z)</option>
+                        <option value="name-desc">Farmer Name (Z-A)</option>
+                        <option value="crop">Crop Name (A-Z)</option>
+                        <option value="crop-desc">Crop Name (Z-A)</option>
+                        <option value="price-asc">Price (Low to High)</option>
+                        <option value="price-desc">Price (High to Low)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Farmers Table -->
+            <div id="allFarmersTable" class="farmers-table-container hidden">
+                <table class="farmers-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Farmer Name</th>
+                            <th>Crop Name</th>
+                            <th>Price (₹/unit)</th>
+                            <th>Quantity</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="allFarmersTableBody">
+                        <!-- Table rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">
+                <h2>🛒 My Cart</h2>
+                <button class="modal-close" onclick="closeCartModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="cartEmpty" class="no-data">
+                    <div class="no-data-icon">🛒</div>
+                    <h3>Your cart is empty</h3>
+                    <p>Add crops you're interested in to your cart for easy access later!</p>
+                </div>
+                <div id="cartItems" class="cart-items-container hidden">
+                    <table class="farmers-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Crop</th>
+                                <th>Farmer</th>
+                                <th>Price (₹/unit)</th>
+                                <th>Quantity</th>
+                                <th>Phone</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody">
+                            <!-- Cart items will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-danger" onclick="clearCart()">🗑️ Clear Cart</button>
+                <button class="btn-secondary" onclick="closeCartModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📞 Contact Farmer</h2>
+                <button class="modal-close" onclick="closeContactModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="contact-info">
+                    <h3 id="contactName"></h3>
+                    <div class="info-row">
+                        <span class="info-label">📧 Email:</span>
+                        <a id="contactEmail" href="" class="info-value"></a>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📱 Phone:</span>
+                        <a id="contactPhone" href="" class="info-value"></a>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📍 Address:</span>
+                        <span id="contactAddress" class="info-value"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">🌾 Crop:</span>
+                        <span id="contactCrop" class="info-value"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">💰 Price:</span>
+                        <span id="contactPrice" class="info-value"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">📦 Quantity:</span>
+                        <span id="contactQuantity" class="info-value"></span>
+                    </div>
+                    
+                    <!-- WhatsApp Contact Section -->
+                    <div class="whatsapp-section">
+                        <h4>💬 Contact via WhatsApp</h4>
+                        <a id="whatsappLink" href="" target="_blank" class="btn-whatsapp">
+                            <span class="whatsapp-icon">📱</span>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeContactModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/merchant-dashboard.js"></script>
+</body>
+</html>

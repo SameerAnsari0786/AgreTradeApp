@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Role - AgreTrade</title>
+    <link rel="stylesheet" href="css/role-selection.css">
+</head>
+<body>
+    <div class="container">
+        <div class="role-card">
+            <div class="header">
+                <h1>🌾 AgreTrade</h1>
+                <h2>Welcome, <span id="userName">User</span>!</h2>
+                <p>You have multiple roles. Please select how you want to proceed:</p>
+            </div>
+
+            <div id="alertMessage" class="alert hidden">
+                <span id="alertText"></span>
+                <button class="close-btn" onclick="closeAlert()">&times;</button>
+            </div>
+
+            <div class="roles-container" id="rolesContainer">
+                <!-- Roles will be dynamically loaded here -->
+            </div>
+
+            <div class="footer-links">
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/role-selection.js"></script>
+</body>
+</html>

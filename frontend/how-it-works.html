@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgreTrade - How It Works (Visual Guide)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+
+        .flow-section {
+            margin: 50px 0;
+        }
+
+        .flow-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 10px;
+        }
+
+        .flow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .step-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            border: 3px solid #667eea;
+            border-radius: 15px;
+            padding: 25px;
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .farmer-step {
+            border-color: #27ae60;
+        }
+
+        .merchant-step {
+            border-color: #e67e22;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .farmer-step .step-number {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        }
+
+        .merchant-step .step-number {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .arrow {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin: 0 10px;
+        }
+
+        .example-section {
+            background: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .example-title {
+            color: #f57c00;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .example-content {
+            color: #5d4037;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .example-content strong {
+            color: #e65100;
+        }
+
+        .btn-start {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-start:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .flow-steps {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+
+            .step-box {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌾 AgreTrade - How It Works</h1>
+            <p>Simple visual guide to understand the platform</p>
+        </div>
+
+        <!-- Farmer Flow -->
+        <div class="flow-section">
+            <div class="flow-title">👨‍🌾 For FARMERS (Sellers)</div>
+            
+            <div class="flow-steps">
+                <div class="step-box farmer-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Register</div>
+                    <div class="step-desc">Create your farmer account with name, email, phone</div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step-box farmer-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Login</div>
+                    <div class="step-desc">Access your farmer dashboard</div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step-box farmer-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Add Crops</div>
+                    <div class="step-desc">List what you're selling (wheat, rice, etc.) with price & quantity</div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step-box farmer-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Get Orders</div>
+                    <div class="step-desc">Merchants search and contact you directly</div>
+                </div>
+            </div>
+
+            <!-- Farmer Example -->
+            <div class="example-section">
+                <div class="example-title">📝 Example: Farmer "Rajesh"</div>
+                <div class="example-content">
+                    <strong>Step 1:</strong> Rajesh registers as a farmer with his details<br>
+                    <strong>Step 2:</strong> He logs into his dashboard<br>
+                    <strong>Step 3:</strong> He clicks "Add Crop" and enters:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Crop Name: "Wheat"<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Price: ₹25.00 per kg<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Quantity: 5000 kg<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Description: "Premium wheat from Punjab"<br>
+                    <strong>Step 4:</strong> Now any merchant searching for "wheat" will see Rajesh's listing and can contact him!
+                </div>
+            </div>
+        </div>
+
+        <!-- Merchant Flow -->
+        <div class="flow-section">
+            <div class="flow-title">🏢 For MERCHANTS (Buyers)</div>
+            
+            <div class="flow-steps">
+                <div class="step-box merchant-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Register</div>
+                    <div class="step-desc">Create your merchant account with business details</div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step-box merchant-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Login</div>
+                    <div class="step-desc">Access your merchant dashboard</div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step-box merchant-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Search Crops</div>
+                    <div class="step-desc">Type crop name in search box to find farmers</div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step-box merchant-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Contact & Buy</div>
+                    <div class="step-desc">View details and contact farmer via phone/WhatsApp</div>
+                </div>
+            </div>
+
+            <!-- Merchant Example -->
+            <div class="example-section">
+                <div class="example-title">📝 Example: Merchant "Sharma Trading"</div>
+                <div class="example-content">
+                    <strong>Step 1:</strong> Sharma Trading registers as a merchant<br>
+                    <strong>Step 2:</strong> They log into their dashboard<br>
+                    <strong>Step 3:</strong> They type "wheat" in the search box and press Enter<br>
+                    <strong>Result:</strong> They see Rajesh's listing:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Wheat - ₹25/kg<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• 5000 kg available<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Farmer: Rajesh<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Phone: 9876543210<br>
+                    <strong>Step 4:</strong> They call Rajesh directly to discuss and make the purchase!
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Points -->
+        <div class="flow-section">
+            <div class="flow-title">🔑 Key Points to Remember</div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+                <div class="example-section" style="background: #e8f5e9; border-left-color: #4caf50;">
+                    <div class="example-title" style="color: #2e7d32;">✅ What This App DOES</div>
+                    <div class="example-content" style="color: #1b5e20;">
+                        • Connects farmers with merchants<br>
+                        • Farmers list their crops<br>
+                        • Merchants search for crops<br>
+                        • Shows contact information<br>
+                        • Direct communication (phone/WhatsApp)
+                    </div>
+                </div>
+
+                <div class="example-section" style="background: #ffebee; border-left-color: #f44336;">
+                    <div class="example-title" style="color: #c62828;">❌ What This App DOESN'T Do</div>
+                    <div class="example-content" style="color: #b71c1c;">
+                        • No online payment system<br>
+                        • No delivery service<br>
+                        • No order tracking<br>
+                        • It's just a connecting platform<br>
+                        • Actual buying happens offline
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="start.html" class="btn-start">🚀 Start Using AgreTrade Now</a>
+    </div>
+</body>
+</html>

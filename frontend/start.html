@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgreTrade - Start Here</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 60px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .user-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .user-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .user-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .user-card.farmer:hover {
+            border-color: #27ae60;
+        }
+
+        .user-card.merchant:hover {
+            border-color: #e67e22;
+        }
+
+        .user-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .user-card h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .user-card p {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .user-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .user-card ul li {
+            color: #2c3e50;
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .user-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-login:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-register {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-register:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .farmer .btn-login {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        }
+
+        .farmer .btn-register {
+            color: #27ae60;
+            border-color: #27ae60;
+        }
+
+        .farmer .btn-register:hover {
+            background: #27ae60;
+            color: white;
+        }
+
+        .merchant .btn-login {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        }
+
+        .merchant .btn-register {
+            color: #e67e22;
+            border-color: #e67e22;
+        }
+
+        .merchant .btn-register:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .help-section {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .help-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .help-section p {
+            color: #7f8c8d;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .user-selection {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🌾</div>
+            <h1>AgreTrade</h1>
+            <p>Agricultural Marketplace - Connecting Farmers & Merchants</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="intro">
+                <h2>Welcome to AgreTrade!</h2>
+                <p>A simple platform where <strong>Farmers can sell</strong> their crops and <strong>Merchants can buy</strong> directly from farmers.</p>
+                <p style="margin-top: 10px; color: #e74c3c; font-weight: 600;">👇 Choose who you are to get started:</p>
+            </div>
+
+            <!-- User Selection Cards -->
+            <div class="user-selection">
+                <!-- Farmer Card -->
+                <div class="user-card farmer">
+                    <div class="user-icon">👨‍🌾</div>
+                    <h3>I'm a Farmer</h3>
+                    <p>Want to sell your crops? Register and list your products.</p>
+                    <ul>
+                        <li>Add multiple crops</li>
+                        <li>Set your own prices</li>
+                        <li>Merchants will find you</li>
+                        <li>Get direct contact</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="login.html?role=farmer" class="btn btn-login">Login</a>
+                        <a href="farmer-register.html" class="btn btn-register">Register</a>
+                    </div>
+                </div>
+
+                <!-- Merchant Card -->
+                <div class="user-card merchant">
+                    <div class="user-icon">🏢</div>
+                    <h3>I'm a Merchant</h3>
+                    <p>Want to buy crops? Register and search for farmers.</p>
+                    <ul>
+                        <li>Search any crop</li>
+                        <li>View farmer details</li>
+                        <li>Compare prices</li>
+                        <li>Contact farmers directly</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="login.html?role=merchant" class="btn btn-login">Login</a>
+                        <a href="merchant-register.html" class="btn btn-register">Register</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="help-section">
+                <h3>❓ How It Works</h3>
+                <p><strong>Farmers:</strong> Register → Login → Add your crops (wheat, rice, vegetables, etc.) → Wait for merchants to contact you</p>
+                <p style="margin-top: 10px;"><strong>Merchants:</strong> Register → Login → Search for crops → View farmer details → Contact them via phone/WhatsApp</p>
+                <p style="margin-top: 15px; color: #e74c3c;"><strong>⚠️ Important:</strong> Make sure the backend server is running before using the app!</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 AgreTrade. A platform for farmers and merchants.</p>
+        </div>
+    </div>
+</body>
+</html>

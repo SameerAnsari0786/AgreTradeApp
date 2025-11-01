@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard - AgreTrade</title>
+    <link rel="stylesheet" href="css/farmer-dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🌾 AgreTrade</h1>
+            </div>
+            <div class="nav-menu">
+                <span class="nav-user">Welcome, <strong id="userName">Farmer</strong></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <div class="dashboard-header">
+            <div class="header-content">
+                <h2>Farmer Dashboard</h2>
+                <p>Manage your products and listings</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-primary" onclick="openAddCropModal()">
+                    <span class="btn-icon">➕</span>
+                    Add Crop
+                </button>
+                <button class="btn-refresh" onclick="loadFarmers()">
+                    <span class="btn-icon">🔄</span>
+                    Refresh
+                </button>
+            </div>
+        </div>
+
+        <!-- Alert Messages -->
+        <div id="alertMessage" class="alert hidden">
+            <span id="alertText"></span>
+            <button class="close-btn" onclick="closeAlert()">&times;</button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-container hidden">
+            <div class="spinner"></div>
+            <p>Loading farmers data...</p>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="stats-container" id="statsContainer">
+            <div class="stat-card">
+                <div class="stat-icon">🌾</div>
+                <div class="stat-info">
+                    <h3 id="totalCrops">0</h3>
+                    <p>Crop Types</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-info">
+                    <h3 id="totalQuantity">0</h3>
+                    <p>Total Quantity</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <h3 id="avgPrice">$0</h3>
+                    <p>Average Price</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Farmers Table -->
+        <div class="table-container">
+            <div id="noDataMessage" class="no-data hidden">
+                <div class="no-data-icon">📋</div>
+                <h3>No Farmers Found</h3>
+                <p>There are no registered farmers yet. Be the first to add products!</p>
+                <button class="btn-primary" onclick="window.location.href='farmer-register.html'">
+                    Add Your First Product
+                </button>
+            </div>
+
+            <table class="farmers-table" id="farmersTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Crop Name</th>
+                        <th>Price (₹)</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="farmersTableBody">
+                    <!-- Table rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Crop Modal -->
+    <div id="addCropModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🌾 Add New Crop</h2>
+                <button class="modal-close" onclick="closeAddCropModal()">&times;</button>
+            </div>
+            <form id="addCropForm" class="modal-form">
+                <div class="form-group">
+                    <label for="cropName">Crop Name *</label>
+                    <input type="text" id="cropName" placeholder="e.g., Wheat, Rice, Tomatoes" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cropPrice">Price (₹ per unit) *</label>
+                        <input type="number" id="cropPrice" step="0.01" min="0" placeholder="e.g., 25.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cropQuantity">Quantity *</label>
+                        <input type="number" id="cropQuantity" step="0.01" min="0" placeholder="e.g., 5000" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cropDescription">Description (Optional)</label>
+                    <textarea id="cropDescription" rows="3" placeholder="Additional details about your crop..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeAddCropModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">
+                        <span id="addCropBtnText">Add Crop</span>
+                        <span id="addCropBtnLoader" class="loader hidden"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/farmer-dashboard.js"></script>
+</body>
+</html>
