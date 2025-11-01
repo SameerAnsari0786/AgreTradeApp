@@ -76,7 +76,7 @@ async function loginUser(username, password) {
                 } else if (role === 'merchant') {
                     window.location.href = 'merchant-dashboard.html';
                 } else {
-                    window.location.href = 'home.html';
+                    window.location.href = 'index.html';
                 }
             }, 1000);
         } else {
